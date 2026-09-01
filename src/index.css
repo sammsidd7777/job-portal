@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --jj-bg: #080806;
+  --jj-bg-soft: #0d0d0a;
+  --jj-surface: #12120e;
+  --jj-surface-2: #171711;
+  --jj-border: rgba(245, 215, 110, 0.12);
+  --jj-border-soft: rgba(255,255,255,0.08);
+  --jj-gold: #D4AF37;
+  --jj-gold-light: #F5D76E;
+  --jj-gold-deep: #9A6C08;
+  --jj-white: #FAFAF7;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--jj-bg); }
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(212,175,55,.09), transparent 32rem),
+    var(--jj-bg);
+  color: var(--jj-white);
+  font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(212,175,55,.30); color: white; }
+:focus-visible { outline: 2px solid var(--jj-gold-light); outline-offset: 3px; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+
+/* Global premium gold/white language */
+.jj-gold { color: var(--jj-gold-light) !important; }
+.jj-gold-bg { background: linear-gradient(135deg, #FFF4B0 0%, #D4AF37 55%, #9A6C08 100%) !important; }
+.jj-surface { background: rgba(18,18,14,.86); border-color: var(--jj-border); }
+
+.hero-text-enter { animation: heroTextIn .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes heroTextIn { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+
+/* Premium scrollbar */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #090907; }
+::-webkit-scrollbar-thumb { background: rgba(212,175,55,.28); border-radius: 999px; border: 2px solid #090907; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245,215,110,.5); }
+
+/* Inputs across the app */
+input, select, textarea {
+  accent-color: var(--jj-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+@media (max-width: 1023px) { body { padding-bottom: 68px; } }
+
+/* Tailwind amber is intentionally remapped to JoblessJob gold. */
+.bg-amber-400 { background-color: #D4AF37 !important; }
+.bg-amber-500 { background-color: #C49A24 !important; }
+.bg-amber-600 { background-color: #A77A18 !important; }
+.bg-amber-700 { background-color: #8A650A !important; }
+.text-amber-200 { color: #FFF4B0 !important; }
+.text-amber-300 { color: #F5D76E !important; }
+.text-amber-400 { color: #D4AF37 !important; }
+.text-amber-500 { color: #C49A24 !important; }
+.text-amber-600 { color: #B8860B !important; }
+.border-amber-200 { border-color: rgba(245,215,110,.30) !important; }
+.border-amber-400 { border-color: rgba(212,175,55,.65) !important; }
+.border-amber-500 { border-color: rgba(196,154,36,.55) !important; }
+.border-amber-600 { border-color: rgba(167,122,24,.60) !important; }
+.hover\\:bg-amber-500:hover { background-color: #D4AF37 !important; }
+.hover\\:bg-amber-600:hover { background-color: #C49A24 !important; }
+.hover\\:text-amber-300:hover { color: #FFF4B0 !important; }
+.dark\\:text-amber-400 { color: #D4AF37 !important; }
+
+/* Shared premium surfaces and interactions */
+button:not(:disabled), a { transition-property: color, background-color, border-color, box-shadow, transform, opacity; transition-duration: 180ms; }
+
+/* Gold hairline used by key cards/sections */
+.jj-gold-line { position: relative; }
+.jj-gold-line::after { content: ""; position: absolute; left: 0; bottom: 0; width: 72px; height: 2px; border-radius: 999px; background: linear-gradient(90deg,#FFF4B0,#D4AF37,#8A650A); }
+
+@media (max-width: 639px) {
+  h1 { text-wrap: balance; }
+  h2, h3 { text-wrap: balance; }
+}
